@@ -1,0 +1,21 @@
+.keyboard {
+    text-align: center;
+}
+
+.key {
+    height: 90px;
+    width: 90px;
+    background-color: rgb(58, 58, 58);
+    margin: 1px 3px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.space {
+    height: 70px;
+    width: 400px;
+}
+
+.character {
+    color: #fff;
+}

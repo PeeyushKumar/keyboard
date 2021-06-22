@@ -2,22 +2,48 @@
     text-align: center;
 }
 
-.key {
-    height: 85px;
-    width: 85px;
-    background-color: rgb(58, 58, 58);
+.key-container {
     margin: 2px 3px;
     display: inline-block;
-    border-radius: 5px;
+    background-color: antiquewhite;
 }
 
-.space {
+.key-alphabet-container {
+    height: 85px;
+    width: 85px;
+}
+
+.key-space-container {
     height: 80px;
     width: 400px;
 }
 
+.key {
+    background-color: rgb(58, 58, 58);
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin: auto;
+}
+
+.key-alphabet-pressed {
+    height: 80%;
+    width: 80%;
+    margin: 10%;
+    font-size: 1rem;
+}
+
+.key-space-pressed {
+    height: 80%;
+    width: 80%;
+    margin: 2% 10%;
+    font-size: 1rem;
+}
+
 .character {
+    font-weight: 100;
     color: #fff;
-    font-size: 1.5em;
-    font-weight: 300;
 }

@@ -9,23 +9,16 @@ class Key extends Component {
     render() {
         let {isSpace, character, isPressed} = this.props;
 
-        let containerClassName = 'key-container';
-
-        if (!isSpace) containerClassName += ' key-alphabet-container';
-        if (isSpace) containerClassName += ' key-space-container';
-        
-        let keyClassname = 'key ';
-        if (!isSpace) keyClassname += ' key-alphabet'; 
-        if (isSpace) keyClassname += ' key-space';
+        let className = 'key ';
+        if (!isSpace) className += ' key-default'; 
+        if (isSpace) className += ' key-space';
         if (isSpace) character = '____';
 
-        if (isPressed) keyClassname += ' key-pressed'
+        if (isPressed) className += ' key-pressed'
 
         return(
-            <div className={containerClassName}>
-                <div className={keyClassname}>
-                    <h3>{character}</h3>
-                </div>
+            <div className={className}>
+                <h3>{character}</h3>
             </div>
         );
     }

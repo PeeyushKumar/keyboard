@@ -9,9 +9,9 @@ class Keyboard extends Component {
 
         this.state = {
             keys : [
-                ['q','w','e','r','t','y','u','i','o','p'],
-                ['a','s','d','f','g','h','j','k','l'],
-                ['z','x','c','v','b','n','m']
+                ['Q','W','E','R','T','Y','U','I','O','P'],
+                ['A','S','D','F','G','H','J','K','K'],
+                ['Z','X','C','V','B','N','M']
             ]
         }
     }
@@ -23,7 +23,7 @@ class Keyboard extends Component {
         return(
             <div className="keyboard">
                 {
-                    keys.map(row => {
+                    keys.map(row => {   
                         return(
                             <div>
                                 {row.map(ch => <Key isSpace={false} character={ch}></Key>)}
@@ -32,7 +32,7 @@ class Keyboard extends Component {
                     })
                 }
                 <div>
-                    <Key isSpace={true} character=' '></Key>
+                    <Key isSpace={true} character='_____'></Key>
                 </div>
             </div>
         );

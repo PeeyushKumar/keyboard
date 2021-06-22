@@ -3,19 +3,21 @@
 }
 
 .key {
-    height: 90px;
-    width: 90px;
+    height: 85px;
+    width: 85px;
     background-color: rgb(58, 58, 58);
-    margin: 1px 3px;
+    margin: 2px 3px;
     display: inline-block;
     border-radius: 5px;
 }
 
 .space {
-    height: 70px;
+    height: 80px;
     width: 400px;
 }
 
 .character {
     color: #fff;
+    font-size: 1.5em;
+    font-weight: 300;
 }

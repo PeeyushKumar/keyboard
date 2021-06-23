@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React,{ Component } from 'react';
 
 import Key from './Key';
 
@@ -23,7 +23,7 @@ class Keyboard extends Component {
             });
         });
 
-        keys.[3][0].isSpace = true;
+        keys[3][0].isSpace = true;
 
         this.state = {
             keys

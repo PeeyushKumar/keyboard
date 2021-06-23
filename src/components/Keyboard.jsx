@@ -1,29 +1,22 @@
 import { Component } from 'react';
 
 import Key from './Key';
+import keyLayout, {disabledKeys} from '../layouts/Layout';
+
 
 class Keyboard extends Component {
     constructor(props) {
         super(props);
 
-        const characters = [
-            ['Q','W','E','R','T','Y','U','I','O','P'],
-            ['A','S','D','F','G','H','J','K','L'],
-            ['Z','X','C','V','B','N','M'],
-            [' ']
-        ]
-
-        const keys = characters.map(row => {
-            return row.map(character => {
+        const keys = keyLayout.map(row => {
+            return row.map(key => {
                 return {
-                    character: character,
+                    ...key,
+                    isDisabled: disabledKeys.includes(key.keyCode) ? true : false,
                     isPressed: false,
-                    isSpace: false
                 }
             });
         });
-
-        keys.[3][0].isSpace = true;
 
         this.state = {
             keys
@@ -37,18 +30,19 @@ class Keyboard extends Component {
 
 
     handleOnKeyDown = (event) => {
-        const {keys} = this.state;
-        const characterPressed = event.key.toUpperCase();
+        event.preventDefault();
 
-        let rows = keys.length;
-        for (let rowIdx=0; rowIdx<rows; rowIdx++) {
-            let cols = keys[rowIdx].length;
-            for (let colIdx=0; colIdx<cols; colIdx++) {
-                if(keys[rowIdx][colIdx].character === characterPressed) {
-                    keys[rowIdx][colIdx].isPressed = true;
-                }
-            }
-        }
+        if (disabledKeys.includes(event.code)) return;
+
+        let {keys} = this.state;
+
+        keys = keys.map(row => {
+            return row.map(key => {
+                if (key.keyCode !== event.code) return key;
+                key.isPressed = true;
+                return key;
+            });
+        })
 
         this.setState({
             keys
@@ -56,18 +50,18 @@ class Keyboard extends Component {
     }
 
     handleOnKeyUp = (event) => {
-        const {keys} = this.state;
-        const characterPressed = event.key.toUpperCase();
+        
+        if (disabledKeys.includes(event.code)) return;
+        
+        let {keys} = this.state;
 
-        let rows = keys.length;
-        for (let rowIdx=0; rowIdx<rows; rowIdx++) {
-            let cols = keys[rowIdx].length;
-            for (let colIdx=0; colIdx<cols; colIdx++) {
-                if(keys[rowIdx][colIdx].character === characterPressed) {
-                    keys[rowIdx][colIdx].isPressed = false;
-                }
-            }
-        }
+        keys = keys.map(row => {
+            return row.map(key => {
+                if (key.keyCode !== event.code) return key;
+                key.isPressed = false;
+                return key;
+            });
+        })
 
         this.setState({
             keys
@@ -82,21 +76,18 @@ class Keyboard extends Component {
         return(
             <div className="keyboard"> 
                 {
-                    keys.map((row, rowIdx) => {   
-                        return(
-                            <div key={rowIdx}>
-                                {row.map((key, keyIdx) => {
-                                    return(
-                                        <Key
-                                            key={keyIdx}
-                                            isSpace={key.isSpace}
-                                            isPressed={key.isPressed}
-                                            character={key.character}
-                                        ></Key>)
-                                })}
-                            </div>
-                        )
-                    })
+                    keys.map((row, rowIdx) =>(
+                        <div className='key-row' key={rowIdx}>
+                            {
+                                row.map((key, keyIdx) => (
+                                    <Key
+                                        key={keyIdx}
+                                        {...key}
+                                    ></Key>)
+                                )
+                            }
+                        </div>)
+                    )
                 }
             </div>
         );

@@ -1,31 +1,25 @@
-.keyboard {
-    text-align: center;
+.key-row {
+    display: flex;
+    justify-content: center;
 }
 
 .key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
-    display: inline-block;
     margin: 2px 3px;
     background-color: rgb(58, 58, 58);
-    border: 1px solid rgb(58, 58, 58);
     border-radius: 5px;
-    font-size: 1.2rem;
     color: rgb(255, 0, 0);
-}
-
-.key-default {
-    height: 85px;
-    width: 85px;
-}
-
-.key-space {
-    height: 80px;
-    width: 400px;
 }
 
 .key-pressed {
     background-color: rgb(235, 235, 235);
     color: rgb(48, 48, 48);
-    font-weight: 400;
 }
 
+.key-disabled {
+    background-color: rgb(167, 167, 167);
+    color: rgb(0, 0, 0);
+}

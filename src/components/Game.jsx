@@ -1,5 +1,4 @@
 import { Component } from 'react';
-
 import Keyboard from './Keyboard';
 
 class Game extends Component {

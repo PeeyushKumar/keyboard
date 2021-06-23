@@ -1,41 +1,25 @@
-.keyboard {
-    text-align: center;
-}
-
-.key-container {
-    margin: 2px 3px;
-    display: inline-block;
-    background-color: antiquewhite;
-}
-
-.key-alphabet-container {
-    height: 85px;
-    width: 85px;
-}
-
-.key-space-container {
-    height: 80px;
-    width: 400px;
+.key-row {
+    display: flex;
+    justify-content: center;
 }
 
 .key {
-    background-color: rgb(58, 58, 58);
-    border-radius: 5px;
-    height: 100%;
-    width: 100%;
     display: flex;
     justify-content: center;
-    font-size: 1.2rem;
-    margin: auto;
-    color: rgb(255, 50, 50);
-    font-weight: normal;
+    align-items: center;
     box-sizing: border-box;
-    border: 1px solid rgb(70, 70, 70);
+    margin: 2px 3px;
+    background-color: rgb(58, 58, 58);
+    border-radius: 5px;
+    color: rgb(255, 0, 0);
 }
 
 .key-pressed {
     background-color: rgb(235, 235, 235);
     color: rgb(48, 48, 48);
-    font-weight: 400;
 }
 
+.key-disabled {
+    background-color: rgb(167, 167, 167);
+    color: rgb(0, 0, 0);
+}

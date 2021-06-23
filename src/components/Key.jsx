@@ -1,31 +1,26 @@
 import { Component } from 'react';
+import {keyRepr} from '../layouts/Layout'
 
 class Key extends Component {
+    render() {    
+        const {keyCode, isPressed, isDisabled, height, width, fontSize} = this.props;
 
-    constructor(props) {
-        super(props);
-    }
+        let className = 'key';
+        if (isPressed) className += ' key-pressed';
+        if (isDisabled) className += ' key-disabled';
 
-    render() {
-        let {isSpace, character, isPressed} = this.props;
-
-        let containerClassName = 'key-container';
-
-        if (!isSpace) containerClassName += ' key-alphabet-container';
-        if (isSpace) containerClassName += ' key-space-container';
-        
-        let keyClassname = 'key ';
-        if (!isSpace) keyClassname += ' key-alphabet'; 
-        if (isSpace) keyClassname += ' key-space';
-        if (isSpace) character = '____';
-
-        if (isPressed) keyClassname += ' key-pressed'
+        const style = {
+            height,
+            width,
+            fontSize
+        }
 
         return(
-            <div className={containerClassName}>
-                <div className={keyClassname}>
-                    <h3>{character}</h3>
-                </div>
+            <div
+                className={className}
+                style={style}
+            >
+                <h3>{keyRepr[keyCode]}</h3>
             </div>
         );
     }

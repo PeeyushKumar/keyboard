@@ -4,7 +4,7 @@ import Keyboard from './Keyboard';
 class Game extends Component {
     render() {
         return(
-            <div>
+            <div className='game'>
                 <Keyboard></Keyboard>
             </div>
         );

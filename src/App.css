@@ -1,3 +1,11 @@
+.game {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1200px;
+}
+
 .key-row {
     display: flex;
     justify-content: center;

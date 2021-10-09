@@ -1,12 +1,26 @@
+
 .game {
+    overflow: hidden;
+    animation: goBack 4s ease 1s 1 forwards;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-width: 1200px;
+    text-align: center;
+}
+
+.keyboard {
+    margin: 2rem;
+    transform-style: preserve-3d;
+    animation: flatten 2s ease 1s 1 forwards;
 }
 
 .key-row {
+    animation: faceUp 2s ease 1s 1 forwards;
+    transform-style: preserve-3d;
+    
     display: flex;
     justify-content: center;
 }
@@ -16,13 +30,16 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    margin: 2px 3px;
+    margin: 2px 1px;
     background-color: rgb(58, 58, 58);
     border-radius: 5px;
+    animation: lightUp 2s ease 1s 1 forwards;
     color: rgb(255, 0, 0);
 }
 
 .key-pressed {
+    transform-style: preserve-3d;
+    transform: translateZ(-10px) rotateX(4deg);
     background-color: rgb(235, 235, 235);
     color: rgb(48, 48, 48);
 }
@@ -30,4 +47,36 @@
 .key-disabled {
     background-color: rgb(167, 167, 167);
     color: rgb(0, 0, 0);
+}
+
+@keyframes flatten {
+    from {
+        transform: rotateX(0deg) translateZ(0px);
+    } to {
+        transform: rotateX(42deg) translateZ(-55px);
+    }
+}
+
+@keyframes faceUp {
+    from {
+        transform: rotateX(0deg);
+    } to {
+        transform: rotateX(-8deg) ;
+    }
+}
+
+@keyframes lightUp {
+    from {
+        box-shadow: none;
+    } to {
+        box-shadow: 0px 0px 15px 3px rgba(23, 23, 23, 0.7);
+    }
+}
+
+@keyframes goBack {
+    from {
+        perspective: 500px;
+    } to {
+        perspective: 800px;
+    }
 }

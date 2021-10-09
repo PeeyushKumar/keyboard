@@ -31,7 +31,7 @@ class Keyboard extends Component {
 
     handleOnKeyDown = (event) => {
         event.preventDefault();
-
+        
         if (disabledKeys.includes(event.code)) return;
 
         let {keys} = this.state;

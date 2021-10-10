@@ -1,7 +1,7 @@
 
 .game {
     overflow: hidden;
-    animation: goBack 4s ease 1s 1 forwards;
+    perspective: 800px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -26,6 +26,7 @@
 }
 
 .key {
+    pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +54,7 @@
     from {
         transform: rotateX(0deg) translateZ(0px);
     } to {
-        transform: rotateX(42deg) translateZ(-55px);
+        transform: rotateX(42deg) translateZ(-180px);
     }
 }
 
@@ -70,13 +71,5 @@
         box-shadow: none;
     } to {
         box-shadow: 0px 0px 15px 3px rgba(23, 23, 23, 0.7);
-    }
-}
-
-@keyframes goBack {
-    from {
-        perspective: 500px;
-    } to {
-        perspective: 800px;
     }
 }
